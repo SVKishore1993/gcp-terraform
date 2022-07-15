@@ -14,7 +14,7 @@ locals {
 
 # Generate a random suffix to associate for project IDs to avoid conflicts
 resource "random_id" "this" {
-  for_each = toset(var.projects)
+  for_each = toset(local.projects_environments)
   byte_length = 2
 }
 
