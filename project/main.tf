@@ -1,10 +1,3 @@
-# Generate a random suffix to associate for project IDs to avoid conflicts
-resource "random_id" "this" {
-  for_each = var.projects
-  byte_length = 2
-}
-
-
 locals {
     projects = [var.projects]
     environments =[var.environment]
@@ -17,6 +10,12 @@ locals {
       }
     ]
   ]))
+}
+
+# Generate a random suffix to associate for project IDs to avoid conflicts
+resource "random_id" "this" {
+  for_each = toset(local.projects_environments)
+  byte_length = 2
 }
 
 resource "google_project" "my_project-in-a-folder" {
