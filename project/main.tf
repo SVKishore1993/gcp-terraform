@@ -5,7 +5,7 @@ resource "random_id" "this" {
 }
 
 
-local {
+locals {
     projects = [var.projects]
     environments =[var.environment]
 
