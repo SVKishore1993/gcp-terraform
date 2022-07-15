@@ -4,7 +4,7 @@ locals {
 
     projects_environments = distinct(flatten([
     for projects in var.projects : [
-      for environments in var.environments : {
+      for environments in var.environment : {
         environments    = environments
         projects        = projects
       }
