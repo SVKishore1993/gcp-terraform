@@ -19,6 +19,6 @@ variable "parent_folder" {
 }
 
 variable "environment" {
-  type        = string
+  type        = list
   description = "environment"
 }
